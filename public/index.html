@@ -3,17 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praneeth - Personal Website</title>
-    <meta name="description" content="Personal website of Praneeth.">
+    <title>Praneeth Reddy Yeddula | Portfolio</title>
+    <meta name="description" content="Portfolio of Praneeth Reddy Yeddula - Systems enthusiast and software developer.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Praneeth's Website</h1>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#hero">PRANEETH_DEV</a>
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Praneeth Reddy Yeddula</h1>
+            <div class="typewriter-container">
+                <span id="typewriter-text"></span><span class="cursor">_</span>
+            </div>
+        </div>
     </header>
+
     <main>
-        <p>This is a placeholder for my personal website.</p>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">>&nbsp;about_me</h2>
+                <div class="about-content">
+                    <p>I am a 2nd year integrated MSc Software Systems student at PSG College of Technology, Coimbatore. I am deeply interested in systems, security, and infrastructure. I build things that solve real problems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">>&nbsp;skills</h2>
+                <div id="skills-grid" class="skills-grid">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">>&nbsp;projects</h2>
+                <div id="projects-grid" class="projects-grid">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container contact-container">
+                <h2 class="section-title">>&nbsp;contact</h2>
+                <p class="contact-text">Got something interesting? Let's talk.</p>
+                <div id="contact-links" class="contact-links">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Praneeth Reddy Yeddula</p>
+            <p class="small-text">Built from scratch.</p>
+        </div>
+    </footer>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>
