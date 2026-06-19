@@ -73,6 +73,7 @@ const CONTACT_LINKS = [
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
     initNavigation();
     initTypewriter();
     renderSkills();
@@ -245,5 +246,29 @@ function initScrollAnimations() {
     
     fadeElements.forEach(element => {
         observer.observe(element);
+    });
+}
+
+// Theme Toggle Logic
+function initThemeToggle() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (!themeToggleBtn) return;
+
+    let currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+
+    themeToggleBtn.addEventListener('click', () => {
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        currentTheme = newTheme;
+    });
+
+    // Listen for OS theme changes and sync if no explicit override is stored
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            const systemTheme = e.matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', systemTheme);
+            currentTheme = systemTheme;
+        }
     });
 }

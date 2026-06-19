@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praneeth Reddy Yeddula | Portfolio</title>
     <meta name="description" content="Portfolio of Praneeth Reddy Yeddula - Systems enthusiast and software developer.">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <meta name="color-scheme" content="light dark">
+    <!-- Inline script to prevent theme flash (FOUC) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -17,15 +26,35 @@
             <div class="nav-logo">
                 <a href="#hero">PRANEETH_DEV</a>
             </div>
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <!-- Sun Icon -->
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -42,7 +71,7 @@
     <main>
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title">>&nbsp;about_me</h2>
+                <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <p>I am a 2nd year integrated MSc Software Systems student at PSG College of Technology, Coimbatore. I am deeply interested in systems, security, and infrastructure. I build things that solve real problems.</p>
                 </div>
@@ -51,7 +80,7 @@
 
         <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">>&nbsp;skills</h2>
+                <h2 class="section-title">Skills & Technologies</h2>
                 <div id="skills-grid" class="skills-grid">
                     <!-- Injected via JS -->
                 </div>
@@ -60,7 +89,7 @@
 
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">>&nbsp;projects</h2>
+                <h2 class="section-title">Featured Projects</h2>
                 <div id="projects-grid" class="projects-grid">
                     <!-- Injected via JS -->
                 </div>
@@ -69,7 +98,7 @@
 
         <section id="contact" class="section">
             <div class="container contact-container">
-                <h2 class="section-title">>&nbsp;contact</h2>
+                <h2 class="section-title">Get In Touch</h2>
                 <p class="contact-text">Got something interesting? Let's talk.</p>
                 <div id="contact-links" class="contact-links">
                     <!-- Injected via JS -->
